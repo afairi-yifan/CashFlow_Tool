@@ -37,4 +37,6 @@ ehthumbs.db
 Thumbs.db
 
 # File #
-Data/
+Data/Output
+Data/Input/Input_example_2023_02_01_01.xlsx
+

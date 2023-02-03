@@ -11,29 +11,7 @@ LIFE_SPAN = 240
 LOWER_BOUND_MONTH = -12
 ONE_YR = 12
 DEFAULT_SHEET_NAME = 'input Default Cohort'
-'''
-1. Access input data 
-    . access input workflow variables and then the output variables for output format  ✅
-    . access customer growth data ✅
-    . if custome cohort as'input cohort m0xx exist:
-            mxxx cohort
-        else:
-            default cohort
-    
-2.  .construct the empty pandas dataframe with sheet "output_variables_layout"
-    .create the output variable list with input_variables, which the simulation function will follow. 
 
-3. .testing by using the previous output datafile & project. 
-
-Total: 3 hours.
-
-'''
-'''
-Simulation steps
- 1-> create a dictionary: items are the integer and keys are the names ✅
- 2-> replace all of the keys to the pandas dataframe. ✅
- 3-> loop the customer growth as run for this month. 
-'''
 class Simulation:
     vars_path = config.var_path
     def __init__(self, data_path):
@@ -125,6 +103,12 @@ class Simulation:
     ########################
     # Tests Output Results #
     ########################
+    def output_numb_cohort_to_excel(self, numb, save_path):
+        first_month = self.group_cohort[numb].output_financial_report()
+        output = first_month.transpose()
+        with ExcelWriter(f'{save_path}') as writer:
+            output.to_excel(writer, sheet_name='test_month')
+
     # def assert_addition_reports(self, add_1, add_2, fina_report):
     #     vars = self.test_output_var.copy()
     #     column_numb = random.randint(0, len(vars)-1)

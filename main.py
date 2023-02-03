@@ -13,4 +13,5 @@ if __name__ == '__main__':
     #     simu.run_for_this_month()
     print(simu.output_full_report())
     simu.output_to_excel()
+    simu.output_numb_cohort_to_excel(0, config.test_path_1)
     # print(simu.group_cohort[0].output_financial_report())
