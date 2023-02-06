@@ -14,6 +14,10 @@ DEFAULT_SHEET_NAME = 'input Default Cohort'
 
 class Simulation:
     vars_path = config.var_path
+    '''
+    Note on the output parameter, the yearly values of customers are the final (max) and all
+    the other values are the sum of the previous six or twlve months. 
+    '''
     def __init__(self, data_path):
         self.data_path = data_path
         ### Params
